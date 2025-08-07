@@ -203,8 +203,8 @@ proxy-groups:
   - name: "🚀 انتخاب خودکار (بهترین)"
     type: url-test
     url: "https://www.gstatic.com/generate_204"
-    interval: 100
-    tolerance: 50
+    interval: 150
+    tolerance: 100
     proxies:
       - "🇮🇷 hamedp71 - IPv4-1"
       - "🇩🇪 hamedp71 - IPv4-1"
@@ -265,7 +265,7 @@ rules:
   - RULE-SET,phishing,REJECT
   - RULE-SET,cryptominers,REJECT
   - RULE-SET,ads,REJECT
-  - MATCH,🚀 انتخاب خودکار (بهترین)
+  - MATCH,🌐 گلوبال
 
 ntp:
   enable: true
