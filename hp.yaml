@@ -214,20 +214,6 @@ proxy-groups:
       - "🇮🇷 hamedp71 - IPv6"
       - "🇸🇪 hamedp71 - IPv6"
 
-  - name: "⚖️ بالانس بار"
-    type: load-balance
-    url: "http://www.google.com/generate_204"
-    interval: 110
-    strategy: "consistent-hashing"
-    proxies:
-      - "🇮🇷 hamedp71 - IPv4-1"
-      - "🇩🇪 hamedp71 - IPv4-1"
-      - "🇮🇷 hamedp71 - IPv4-2"
-      - "🇩🇪 hamedp71-IPv4-2"
-      - "🇩🇪 hamedp71-IPv4-3"
-      - "🇮🇷 hamedp71 - IPv6"
-      - "🇸🇪 hamedp71 - IPv6"
-
 rule-providers:
   ir:
     type: http
@@ -279,7 +265,7 @@ rules:
   - RULE-SET,phishing,REJECT
   - RULE-SET,cryptominers,REJECT
   - RULE-SET,ads,REJECT
-  - MATCH,🚀 انتخاب خودکار (بهترین),⚖️ بالانس بار
+  - MATCH,🚀 انتخاب خودکار (بهترین)
 
 ntp:
   enable: true
