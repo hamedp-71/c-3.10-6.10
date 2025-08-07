@@ -209,9 +209,9 @@ proxy-groups:
 
   - name: "🚀 انتخاب خودکار (بهترین)"
     type: url-test
-    url: "https://www.gstatic.com/generate_204"
-    interval: 300
-    tolerance: 100
+    url: "http://cp.cloudflare.com"
+    interval: 150
+    tolerance: 50
     proxies:
       - "🇮🇷 hamedp71 - IPv4-1"
       - "🇩🇪 hamedp71 - IPv4-1"
