@@ -68,7 +68,7 @@ sniffer:
 proxies:
   - name: "🇮🇷 hamedp71 - IPv4-1"
     type: wireguard
-    ip: 172.16.0.2/32
+    ip: 172.16.0.1/32
     ipv6: 2001:db8:1::1
     private-key: "pQ15jrTUSHWaZUZrR7VKob9PjbrStxUQJ/akkKkplsU="
     server: 8.34.70.55
@@ -106,7 +106,7 @@ proxies:
 
   - name: "🇮🇷 hamedp71 - IPv4-2"
     type: wireguard
-    ip: 172.16.0.2/32
+    ip: 172.16.0.3/32
     ipv6: 2001:db8:1::1
     private-key: "sBlOEknlqiLiQ0cgThr8n9sZB6nCJ0oTgYMlTlLgekY="
     server: 8.6.112.246
@@ -210,8 +210,8 @@ proxy-groups:
   - name: "🚀 انتخاب خودکار (بهترین)"
     type: url-test
     url: "http://cp.cloudflare.com"
-    interval: 150
-    tolerance: 50
+    interval: 50
+    tolerance: 100
     proxies:
       - "🇮🇷 hamedp71 - IPv4-1"
       - "🇩🇪 hamedp71 - IPv4-1"
