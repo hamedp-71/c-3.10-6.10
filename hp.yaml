@@ -279,7 +279,7 @@ rules:
   - RULE-SET,phishing,REJECT
   - RULE-SET,cryptominers,REJECT
   - RULE-SET,ads,REJECT
-  - MATCH,⚖️ بالانس بار
+  - MATCH,🚀 انتخاب خودکار (بهترین),⚖️ بالانس بار
 
 ntp:
   enable: true
