@@ -3,7 +3,8 @@ ipv6: true
 allow-lan: true
 mode: rule
 log-level: warning
-disable-keep-alive: false
+keepalive: 25
+disable-keep-alive: true
 keep-alive-idle: 30
 keep-alive-interval: 30
 unified-delay: false
@@ -27,19 +28,12 @@ dns:
   use-hosts: true
   use-system-hosts: false
   nameserver:
-    - '1.1.1.1'
-    - '2606:4700:4700::1111'
-    - '8.8.8.8'
-    - '2001:4860:4860::8888'
-    - '8.8.4.4'
-    - '2001:4860:4860::8844'
+    - "tls://dns.adguard.com"
+    - "https://doh.opendns.com/dns-query"
+    - "tls://dot.snopyta.org"
+    - "https://dns.cloudflare-dns.com/dns-query"
   proxy-server-nameserver:
-    - '1.1.1.1'
-    - '2606:4700:4700::1111'
-    - '8.8.8.8'
-    - '2001:4860:4860::8888'
-    - '8.8.4.4'
-    - '2001:4860:4860::8844'
+    - "tls://1.1.1.1"
 tun:
   enable: true
   stack: mixed
@@ -49,7 +43,7 @@ tun:
   dns-hijack:
   - 'tcp://any:53'
   - 'udp://any:53'
-  mtu: 1420
+  mtu: 1280
 sniffer:
   enable: true
   force-dns-mapping: true
@@ -57,9 +51,9 @@ sniffer:
   override-destination: false
   sniff:
     HTTP:
-      ports: [80, 8080, 8880, 2052, 2082, 2086, 2095]
+      ports: [80, 443]
     TLS:
-      ports: [443, 8443, 2053, 2083, 2087, 2096]
+      ports: [443]
 
 proxies:
   - name: "🇮🇷 hamedp71 - IPv4-1"
@@ -70,10 +64,10 @@ proxies:
     server: 8.34.70.55
     port: 880
     public-key: "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
-    allowed-ips: ["10.0.0.0/8", "0.0.0.0/0"]
+    allowed-ips: ["0.0.0.0/0", "::/0", "10.0.0.0/8", "!185.143.223.0/24", "!94.232.128.0/21"]
     reserved: "AAAA"
     udp: true
-    mtu: 1420
+    mtu: 1280
     dialer-proxy: ""
     amnezia-wg-option:
       jc: 4
@@ -97,7 +91,7 @@ proxies:
     allowed-ips: ["0.0.0.0/0", "::/0", "10.0.0.0/8", "!185.143.223.0/24", "!94.232.128.0/21"]
     reserved: "AAAA"
     udp: true
-    mtu: 1420
+    mtu: 1280
     dialer-proxy: "🇮🇷 hamedp71 - IPv4-1"
 
   - name: "🇩🇪 hamedp71-IPv4-2"
@@ -111,7 +105,7 @@ proxies:
     allowed-ips: ["0.0.0.0/0", "::/0", "10.0.0.0/8", "!185.143.223.0/24", "!94.232.128.0/21"]
     reserved: "AAAA"
     udp: true
-    mtu: 1420
+    mtu: 1280
     dialer-proxy: "🇮🇷 hamedp71 - IPv4-1"
 
   - name: "🇮🇷 hamedp71 - IPv6"
@@ -125,7 +119,7 @@ proxies:
     allowed-ips: ["0.0.0.0/0", "::/0", "10.0.0.0/8", "!185.143.223.0/24", "!94.232.128.0/21"]
     reserved: "AAAA"
     udp: true
-    mtu: 1420
+    mtu: 1280
     dialer-proxy: ""
     amnezia-wg-option:
       jc: 4
@@ -149,7 +143,7 @@ proxies:
     allowed-ips: ["0.0.0.0/0", "::/0", "10.0.0.0/8", "!185.143.223.0/24", "!94.232.128.0/21"]
     reserved: "AAAA"
     udp: true
-    mtu: 1420
+    mtu: 1280
     dialer-proxy: "🇮🇷 hamedp71 - IPv6"
 
 proxy-groups:
