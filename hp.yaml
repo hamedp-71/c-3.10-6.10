@@ -92,7 +92,7 @@ proxies:
 
   - name: "🇩🇪 hamedp71 - IPv4-1"
     type: wireguard
-    ip: 172.16.0.5/32
+    ip: 172.16.0.1/32
     ipv6: 2001:db8:1::1
     private-key: "cCzElB7zAvcK9LVYUxt+q9qr1kVFTXPppqc8zdxm62k="
     server: 8.6.112.167
@@ -106,7 +106,7 @@ proxies:
 
   - name: "🇮🇷 hamedp71 - IPv4-2"
     type: wireguard
-    ip: 172.16.0.3/32
+    ip: 172.16.0.1/32
     ipv6: 2001:db8:1::1
     private-key: "sBlOEknlqiLiQ0cgThr8n9sZB6nCJ0oTgYMlTlLgekY="
     server: 8.6.112.246
@@ -130,7 +130,7 @@ proxies:
 
   - name: "🇩🇪 hamedp71-IPv4-2"
     type: wireguard
-    ip: 172.16.0.6/32
+    ip: 172.16.0.1/32
     ipv6: 2001:db8:1::1/128
     private-key: "gEvJgRYd6tzU6yYfAs24Re/8+WWvTsqGMKl+EBCUjFE="
     server: 8.47.69.99
@@ -144,7 +144,7 @@ proxies:
 
   - name: "🇩🇪 hamedp71-IPv4-3"
     type: wireguard
-    ip: 172.16.0.7/32
+    ip: 172.16.0.1/32
     ipv6: 2001:db8:1::1
     private-key: "SB7D/463hsCdAIV9xLLgHOhtH1hiHqzH8u2MIKHpSGA="
     server: 8.34.70.57
@@ -158,7 +158,7 @@ proxies:
 
   - name: "🇮🇷 hamedp71 - IPv6"
     type: wireguard
-    ip: 172.16.0.4/32
+    ip: 172.16.0.1/32
     ipv6: 2001:db8:1::1
     private-key: "8BulFfbSIejAzA4bET2F09I+ZJvNrSdhvD9HRHNwZVM="
     server: "[2606:4700:d0::ea5a:c7db:4494:2995]"
@@ -182,7 +182,7 @@ proxies:
 
   - name: "🇸🇪 hamedp71 - IPv6"
     type: wireguard
-    ip: 172.16.0.8/32
+    ip: 172.16.0.1/32
     ipv6: 2001:db8:1::1
     private-key: "0GapdERcPdqP7hXovlbv/HoUafjR3jB4EGGm+LXXdlA="
     server: 8.47.69.105
