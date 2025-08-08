@@ -71,8 +71,8 @@ proxies:
     dialer-proxy: ""
     amnezia-wg-option:
       jc: 4
-      jmin: 80
-      jmax: 400
+      jmin: 100
+      jmax: 600
       s1: 2
       s2: 2
       h1: 2
@@ -123,8 +123,8 @@ proxies:
     dialer-proxy: ""
     amnezia-wg-option:
       jc: 4
-      jmin: 80
-      jmax: 400
+      jmin: 100
+      jmax: 600
       s1: 2
       s2: 2
       h1: 2
