@@ -3,8 +3,7 @@ ipv6: true
 allow-lan: true
 mode: rule
 log-level: warning
-keepalive: 25
-disable-keep-alive: true
+disable-keep-alive: false
 keep-alive-idle: 30
 keep-alive-interval: 30
 unified-delay: false
