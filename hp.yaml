@@ -28,11 +28,13 @@ dns:
   use-hosts: true
   use-system-hosts: false
   nameserver:
+    - "1.1.1.1"
     - "tls://dns.adguard.com"
     - "https://doh.opendns.com/dns-query"
     - "tls://dot.snopyta.org"
     - "https://dns.cloudflare-dns.com/dns-query"
   proxy-server-nameserver:
+    - "1.1.1.1"
     - "tls://1.1.1.1"
 tun:
   enable: true
@@ -58,13 +60,13 @@ sniffer:
 proxies:
   - name: "🇮🇷 hamedp71 - IPv4-1"
     type: wireguard
-    ip: 172.16.0.0/32
+    ip: 172.16.0.2/32
     ipv6: 2001:db8:1::1/128
     private-key: "pQ15jrTUSHWaZUZrR7VKob9PjbrStxUQJ/akkKkplsU="
     server: 8.34.70.55
     port: 880
     public-key: "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
-    allowed-ips: ["0.0.0.0/0", "::/0", "10.0.0.0/8", "!185.143.223.0/24", "!94.232.128.0/21"]
+    allowed-ips: ["0.0.0.0/0", "::/0"]
     reserved: "AAAA"
     udp: true
     mtu: 1280
@@ -82,13 +84,13 @@ proxies:
 
   - name: "🇩🇪 hamedp71 - IPv4-1"
     type: wireguard
-    ip: 172.16.0.0/32
+    ip: 172.16.0.2/32
     ipv6: 2001:db8:1::1/128
     private-key: "cCzElB7zAvcK9LVYUxt+q9qr1kVFTXPppqc8zdxm62k="
     server: 8.6.112.167
     port: 939
     public-key: "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
-    allowed-ips: ["0.0.0.0/0", "::/0", "10.0.0.0/8", "!185.143.223.0/24", "!94.232.128.0/21"]
+    allowed-ips: ["0.0.0.0/0", "::/0"]
     reserved: "AAAA"
     udp: true
     mtu: 1280
@@ -96,13 +98,13 @@ proxies:
 
   - name: "🇩🇪 hamedp71-IPv4-2"
     type: wireguard
-    ip: 172.16.0.0/32
+    ip: 172.16.0.2/32
     ipv6: 2001:db8:1::1/128
     private-key: "gEvJgRYd6tzU6yYfAs24Re/8+WWvTsqGMKl+EBCUjFE="
     server: 188.114.99.228
     port: 5279
     public-key: "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
-    allowed-ips: ["0.0.0.0/0", "::/0", "10.0.0.0/8", "!185.143.223.0/24", "!94.232.128.0/21"]
+    allowed-ips: ["0.0.0.0/0", "::/0"]
     reserved: "AAAA"
     udp: true
     mtu: 1280
@@ -110,13 +112,13 @@ proxies:
 
   - name: "🇮🇷 hamedp71 - IPv6"
     type: wireguard
-    ip: 172.16.0.0/32
+    ip: 172.16.0.2/32
     ipv6: 2001:db8:1::1/128
     private-key: "8BulFfbSIejAzA4bET2F09I+ZJvNrSdhvD9HRHNwZVM="
     server: "[2606:4700:d0::ea5a:c7db:4494:2995]"
     port: 987
     public-key: "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
-    allowed-ips: ["0.0.0.0/0", "::/0", "10.0.0.0/8", "!185.143.223.0/24", "!94.232.128.0/21"]
+    allowed-ips: ["0.0.0.0/0", "::/0"]
     reserved: "AAAA"
     udp: true
     mtu: 1280
@@ -134,13 +136,13 @@ proxies:
 
   - name: "🇸🇪 hamedp71 - IPv6"
     type: wireguard
-    ip: 172.16.0.0/32
+    ip: 172.16.0.2/32
     ipv6: 2001:db8:1::1/128
     private-key: "0GapdERcPdqP7hXovlbv/HoUafjR3jB4EGGm+LXXdlA="
     server: 8.47.69.105
     port: 880
     public-key: "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
-    allowed-ips: ["0.0.0.0/0", "::/0", "10.0.0.0/8", "!185.143.223.0/24", "!94.232.128.0/21"]
+    allowed-ips: ["0.0.0.0/0", "::/0"]
     reserved: "AAAA"
     udp: true
     mtu: 1280
@@ -160,8 +162,8 @@ proxy-groups:
   - name: "🚀 انتخاب خودکار (بهترین)"
     type: url-test
     url: "http://cp.cloudflare.com"
-    interval: 100
-    tolerance: 50
+    interval: 300
+    tolerance: 100
     proxies:
       - "🇮🇷 hamedp71 - IPv4-1"
       - "🇩🇪 hamedp71 - IPv4-1"
