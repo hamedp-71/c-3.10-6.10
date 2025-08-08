@@ -64,7 +64,7 @@ sniffer:
 proxies:
   - name: "🇮🇷 hamedp71 - IPv4-1"
     type: wireguard
-    ip: 172.16.0.0/32
+    ip: 10.0.0.0/8
     ipv6: 2001:db8:1::1/128
     private-key: "pQ15jrTUSHWaZUZrR7VKob9PjbrStxUQJ/akkKkplsU="
     server: 8.34.70.55
