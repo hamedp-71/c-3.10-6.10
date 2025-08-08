@@ -88,7 +88,7 @@ proxies:
 
   - name: "🇩🇪 hamedp71 - IPv4-1"
     type: wireguard
-    ip: 172.16.0.0/32
+    ip: 10.0.0.0/8
     ipv6: 2001:db8:1::1/128
     private-key: "cCzElB7zAvcK9LVYUxt+q9qr1kVFTXPppqc8zdxm62k="
     server: 8.6.112.167
@@ -102,7 +102,7 @@ proxies:
 
   - name: "🇩🇪 hamedp71-IPv4-2"
     type: wireguard
-    ip: 172.16.0.0/32
+    ip: 10.0.0.0/8
     ipv6: 2001:db8:1::1/128
     private-key: "gEvJgRYd6tzU6yYfAs24Re/8+WWvTsqGMKl+EBCUjFE="
     server: 188.114.99.228
@@ -116,7 +116,7 @@ proxies:
 
   - name: "🇮🇷 hamedp71 - IPv6"
     type: wireguard
-    ip: 172.16.0.0/32
+    ip: 10.0.0.0/8
     ipv6: 2001:db8:1::1/128
     private-key: "8BulFfbSIejAzA4bET2F09I+ZJvNrSdhvD9HRHNwZVM="
     server: "[2606:4700:d0::ea5a:c7db:4494:2995]"
@@ -140,7 +140,7 @@ proxies:
 
   - name: "🇸🇪 hamedp71 - IPv6"
     type: wireguard
-    ip: 172.16.0.0/32
+    ip: 10.0.0.0/8
     ipv6: 2001:db8:1::1/128
     private-key: "0GapdERcPdqP7hXovlbv/HoUafjR3jB4EGGm+LXXdlA="
     server: 8.47.69.105
@@ -166,8 +166,8 @@ proxy-groups:
   - name: "🚀 انتخاب خودکار (بهترین)"
     type: url-test
     url: "http://cp.cloudflare.com"
-    interval: 50
-    tolerance: 100
+    interval: 100
+    tolerance: 50
     proxies:
       - "🇮🇷 hamedp71 - IPv4-1"
       - "🇩🇪 hamedp71 - IPv4-1"
@@ -176,8 +176,56 @@ proxy-groups:
       - "🇸🇪 hamedp71 - IPv6"
 
 rule-providers:
+  ir:
+    type: http
+    format: text
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ir.txt"
+    path: "./ruleset/ir.txt"
+    interval: 86400
+  ir-cidr:
+    type: http
+    format: text
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ircidr.txt"
+    path: "./ruleset/ir-cidr.txt"
+    interval: 86400
+  malware:
+    type: http
+    format: text
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/malware.txt"
+    path: "./ruleset/malware.txt"
+    interval: 86400
+  phishing:
+    type: http
+    format: text
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/phishing.txt"
+    path: "./ruleset/phishing.txt"
+    interval: 86400
+  cryptominers:
+    type: http
+    format: text
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/cryptominers.txt"
+    path: "./ruleset/cryptominers.txt"
+    interval: 86400
+  ads:
+    type: http
+    format: text
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ads.txt"
+    path: "./ruleset/ads.txt"
+    interval: 86400
 
 rules:
+  - RULE-SET,ir,DIRECT
+  - RULE-SET,ir-cidr,DIRECT
+  - RULE-SET,malware,REJECT
+  - RULE-SET,phishing,REJECT
+  - RULE-SET,cryptominers,REJECT
+  - RULE-SET,ads,REJECT
   - MATCH,🌐 گلوبال
 
 ntp:
