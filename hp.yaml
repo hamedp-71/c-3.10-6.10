@@ -176,48 +176,8 @@ proxy-groups:
       - "🇸🇪 hamedp71 - IPv6"
 
 rule-providers:
-  ir:
-    type: http
-    format: text
-    behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ir.txt"
-    path: "./ruleset/ir.txt"
-    interval: 86400
-  ir-cidr:
-    type: http
-    format: text
-    behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ircidr.txt"
-    path: "./ruleset/ir-cidr.txt"
-    interval: 86400
-  malware:
-    type: http
-    format: text
-    behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/malware.txt"
-    path: "./ruleset/malware.txt"
-    interval: 86400
-  phishing:
-    type: http
-    format: text
-    behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/phishing.txt"
-    path: "./ruleset/phishing.txt"
-    interval: 86400
-  ads:
-    type: http
-    format: text
-    behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ads.txt"
-    path: "./ruleset/ads.txt"
-    interval: 86400
 
 rules:
-  - RULE-SET,ir,DIRECT
-  - RULE-SET,ir-cidr,DIRECT
-  - RULE-SET,malware,REJECT
-  - RULE-SET,phishing,REJECT
-  - RULE-SET,ads,REJECT
   - MATCH,🌐 گلوبال
 
 ntp:
