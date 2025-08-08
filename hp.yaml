@@ -76,15 +76,15 @@ proxies:
     mtu: 1280
     dialer-proxy: ""
     amnezia-wg-option:
-      jc: 4
-      jmin: 40
-      jmax: 250
-      s1: 0
-      s2: 0
-      h1: 1
-      h2: 2
-      h4: 3
-      h3: 4
+      jc: 6
+      jmin: 10
+      jmax: 100
+      s1: 2
+      s2: 2
+      h1: 2
+      h2: 4
+      h4: 1
+      h3: 3
 
   - name: "🇩🇪 hamedp71 - IPv4-1"
     type: wireguard
