@@ -27,8 +27,6 @@ dns:
   use-hosts: true
   use-system-hosts: false
   nameserver:
-    - '9.9.9.9'
-    - '2620:fe::fe'
     - '1.1.1.1'
     - '2606:4700:4700::1111'
     - '8.8.8.8'
@@ -36,8 +34,6 @@ dns:
     - '8.8.4.4'
     - '2001:4860:4860::8844'
   proxy-server-nameserver:
-    - '9.9.9.9'
-    - '2620:fe::fe'
     - '1.1.1.1'
     - '2606:4700:4700::1111'
     - '8.8.8.8'
@@ -250,13 +246,6 @@ rule-providers:
     url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/phishing.txt"
     path: "./ruleset/phishing.txt"
     interval: 86400
-  cryptominers:
-    type: http
-    format: text
-    behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/cryptominers.txt"
-    path: "./ruleset/cryptominers.txt"
-    interval: 86400
   ads:
     type: http
     format: text
@@ -270,7 +259,6 @@ rules:
   - RULE-SET,ir-cidr,DIRECT
   - RULE-SET,malware,REJECT
   - RULE-SET,phishing,REJECT
-  - RULE-SET,cryptominers,REJECT
   - RULE-SET,ads,REJECT
   - MATCH,🌐 گلوبال
 
