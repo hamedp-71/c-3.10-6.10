@@ -1,281 +1,65 @@
-mixed-port: 7890
-ipv6: true
-allow-lan: true
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+ipv6: false
 mode: rule
-log-level: warning
-disable-keep-alive: false
-keep-alive-idle: 30
-keep-alive-interval: 30
-unified-delay: false
-geo-auto-update: true
-geo-update-interval: 168
-external-controller: '127.0.0.1:9090'
-external-ui-url: 'https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip'
-external-ui: ui
-external-controller-cors:
-  allow-origins: ['*']
-  allow-private-network: true
+log-level: silent
+allow-lan: true
+external-controller: 0.0.0.0:9090
+secret: ""
+bind-address: "*"
+unified-delay: true
 profile:
   store-selected: true
-  store-fake-ip: true
-hosts: {}
 dns:
   enable: true
-  listen: 0.0.0.0:1053
-  ipv6: true
-  respect-rules: true
-  use-hosts: true
-  use-system-hosts: false
+  ipv6: false
+  enhanced-mode: redir-host
+  listen: 0.0.0.0:7874
   nameserver:
-    - '9.9.9.9'
-    - '2620:fe::fe'
-    - '1.1.1.1'
-    - '2606:4700:4700::1111'
-    - '8.8.8.8'
-    - '2001:4860:4860::8888'
-    - '8.8.4.4'
-    - '2001:4860:4860::8844'
-  proxy-server-nameserver:
-    - '9.9.9.9'
-    - '2620:fe::fe'
-    - '1.1.1.1'
-    - '2606:4700:4700::1111'
-    - '8.8.8.8'
-    - '2001:4860:4860::8888'
-    - '8.8.4.4'
-    - '2001:4860:4860::8844'
-tun:
-  enable: true
-  stack: mixed
-  auto-route: true
-  strict-route: true
-  auto-detect-interface: true
-  dns-hijack:
-  - 'tcp://any:53'
-  - 'udp://any:53'
-  mtu: 1280
-sniffer:
-  enable: true
-  force-dns-mapping: true
-  parse-pure-ip: true
-  override-destination: false
-  sniff:
-    HTTP:
-      ports: [80, 8080, 8880, 2052, 2082, 2086, 2095]
-    TLS:
-      ports: [443, 8443, 2053, 2083, 2087, 2096]
-
+    - 8.8.8.8
+    - 1.0.0.1
+    - https://dns.google/dns-query
+  fallback:
+    - 1.1.1.1
+    - 8.8.4.4
+    - https://cloudflare-dns.com/dns-query
+    - 112.215.203.254
+  default-nameserver:
+    - 8.8.8.8
+    - 1.1.1.1
+    - 112.215.203.254
 proxies:
-  - name: "🇮🇷 hamedp71 - IPv4-1"
-    type: wireguard
-    ip: 172.16.0.2/32
-    ipv6: 2001:db8:1::1
-    private-key: "pQ15jrTUSHWaZUZrR7VKob9PjbrStxUQJ/akkKkplsU="
-    server: 188.114.97.178
-    port: 878
-    public-key: "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
-    allowed-ips: ["0.0.0.0/0", "::/0", "10.0.0.0/8", "!185.143.223.0/24", "!94.232.128.0/21"]
-    reserved: "AAAA"
+  - name: "VLESS - Domain 1 : 443"
+    server: bpb-worker-panel0-e4p.pages.dev
+    port: 443
+    type: vless
+    uuid: 4045e84e-5e3c-4f70-8ff5-c1097882a55a
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: bPb-workER-panel0-e4p.paGES.DEv
+    network: ws
+    ws-opts:
+      path: /vfs9PAJTXmhQHgUm/YnBiLnlvdXNlZi5pc2VnYXJvLmNvbQ==
+      headers:
+        Host: bpb-worker-panel0-e4p.pages.dev
     udp: true
-    mtu: 1280
-    dialer-proxy: ""
-    amnezia-wg-option:
-      jc: 4
-      jmin: 40
-      jmax: 250
-      s1: 0
-      s2: 0
-      h1: 1
-      h2: 2
-      h4: 3
-      h3: 4
-
-  - name: "🇩🇪 hamedp71 - IPv4-1"
-    type: wireguard
-    ip: 172.16.0.2/32
-    ipv6: 2001:db8:1::1
-    private-key: "cCzElB7zAvcK9LVYUxt+q9qr1kVFTXPppqc8zdxm62k="
-    server: 188.114.96.11
-    port: 4500
-    public-key: "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
-    allowed-ips: ["0.0.0.0/0", "::/0", "10.0.0.0/8", "!185.143.223.0/24", "!94.232.128.0/21"]
-    reserved: "AAAA"
-    udp: true
-    mtu: 1280
-    dialer-proxy: "🇮🇷 hamedp71 - IPv4-1"
-
-  - name: "🇮🇷 hamedp71 - IPv4-2"
-    type: wireguard
-    ip: 172.16.0.2/32
-    ipv6: 2001:db8:1::1
-    private-key: "sBlOEknlqiLiQ0cgThr8n9sZB6nCJ0oTgYMlTlLgekY="
-    server: 188.114.96.123
-    port: 7152
-    public-key: "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
-    allowed-ips: ["0.0.0.0/0", "::/0", "10.0.0.0/8", "!185.143.223.0/24", "!94.232.128.0/21"]
-    reserved: "AAAA"
-    udp: true
-    mtu: 1280
-    dialer-proxy: ""
-    amnezia-wg-option:
-      jc: 4
-      jmin: 40
-      jmax: 250
-      s1: 0
-      s2: 0
-      h1: 1
-      h2: 2
-      h4: 3
-      h3: 4
-
-  - name: "🇩🇪 hamedp71 - IPv4-2"
-    type: wireguard
-    ip: 172.16.0.2/32
-    ipv6: 2001:db8:1::1/128
-    private-key: "gEvJgRYd6tzU6yYfAs24Re/8+WWvTsqGMKl+EBCUjFE="
-    server: 188.114.96.176
-    port: 3138
-    public-key: "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
-    allowed-ips: ["0.0.0.0/0", "::/0", "10.0.0.0/8", "!185.143.223.0/24", "!94.232.128.0/21"]
-    reserved: "AAAA"
-    udp: true
-    mtu: 1280
-    dialer-proxy: "🇮🇷 hamedp71 - IPv4-1"
-
-  - name: "🇩🇪 hamedp71 - IPv4-3"
-    type: wireguard
-    ip: 172.16.0.2/32
-    ipv6: 2001:db8:1::1
-    private-key: "SB7D/463hsCdAIV9xLLgHOhtH1hiHqzH8u2MIKHpSGA="
-    server: 188.114.96.79
-    port: 891
-    public-key: "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
-    allowed-ips: ["0.0.0.0/0", "::/0", "10.0.0.0/8", "!185.143.223.0/24", "!94.232.128.0/21"]
-    reserved: "AAAA"
-    udp: true
-    mtu: 1280
-    dialer-proxy: "🇮🇷 hamedp71 - IPv4-2"
-
-  - name: "🇮🇷 hamedp71 - IPv6"
-    type: wireguard
-    ip: 172.16.0.2/32
-    ipv6: 2001:db8:1::1
-    private-key: "8BulFfbSIejAzA4bET2F09I+ZJvNrSdhvD9HRHNwZVM="
-    server: "[2606:4700:d1::1c71:c6f6:09c7:11cf]"
-    port: 939
-    public-key: "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
-    allowed-ips: ["0.0.0.0/0", "::/0", "10.0.0.0/8", "!185.143.223.0/24", "!94.232.128.0/21"]
-    reserved: "AAAA"
-    udp: true
-    mtu: 1280
-    dialer-proxy: ""
-    amnezia-wg-option:
-      jc: 4
-      jmin: 40
-      jmax: 250
-      s1: 0
-      s2: 0
-      h1: 1
-      h2: 2
-      h4: 3
-      h3: 4
-
-  - name: "🇸🇪 hamedp71 - IPv6"
-    type: wireguard
-    ip: 172.16.0.2/32
-    ipv6: 2001:db8:1::1
-    private-key: "0GapdERcPdqP7hXovlbv/HoUafjR3jB4EGGm+LXXdlA="
-    server: 188.114.97.26
-    port: 2371
-    public-key: "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
-    allowed-ips: ["0.0.0.0/0", "::/0", "10.0.0.0/8", "!185.143.223.0/24", "!94.232.128.0/21"]
-    reserved: "AAAA"
-    udp: true
-    mtu: 1280
-    dialer-proxy: "🇮🇷 hamedp71 - IPv6"
-
 proxy-groups:
-  - name: "🌐 گلوبال"
+  - name: FASTSSH-SSHKIT-HOWDY
     type: select
     proxies:
-      - "🚀 انتخاب خودکار (بهترین)"
-      - "🇮🇷 hamedp71 - IPv4-1"
-      - "🇩🇪 hamedp71 - IPv4-1"
-      - "🇮🇷 hamedp71 - IPv4-2"
-      - "🇩🇪 hamedp71 - IPv4-2"
-      - "🇩🇪 hamedp71 - IPv4-3"
-      - "🇮🇷 hamedp71 - IPv6"
-      - "🇸🇪 hamedp71 - IPv6"
-
-  - name: "🚀 انتخاب خودکار (بهترین)"
+      - "VLESS - Domain 1 : 443"
+      - BEST-PING
+      - DIRECT
+  - name: BEST-PING
     type: url-test
-    url: "https://www.gstatic.com/generate_204"
-    interval: 600
+    url: http://hi.bonds.id/ping
+    interval: 300
     tolerance: 50
     proxies:
-      - "🇮🇷 hamedp71 - IPv4-1"
-      - "🇩🇪 hamedp71 - IPv4-1"
-      - "🇮🇷 hamedp71 - IPv4-2"
-      - "🇩🇪 hamedp71 - IPv4-2"
-      - "🇩🇪 hamedp71 - IPv4-3"
-      - "🇮🇷 hamedp71 - IPv6"
-      - "🇸🇪 hamedp71 - IPv6"
-
-rule-providers:
-  ir:
-    type: http
-    format: text
-    behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ir.txt"
-    path: "./ruleset/ir.txt"
-    interval: 86400
-  ir-cidr:
-    type: http
-    format: text
-    behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ircidr.txt"
-    path: "./ruleset/ir-cidr.txt"
-    interval: 86400
-  malware:
-    type: http
-    format: text
-    behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/malware.txt"
-    path: "./ruleset/malware.txt"
-    interval: 86400
-  phishing:
-    type: http
-    format: text
-    behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/phishing.txt"
-    path: "./ruleset/phishing.txt"
-    interval: 86400
-  cryptominers:
-    type: http
-    format: text
-    behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/cryptominers.txt"
-    path: "./ruleset/cryptominers.txt"
-    interval: 86400
-  ads:
-    type: http
-    format: text
-    behavior: domain
-    url: "https://raw.githubusercontent.com/Chocolate4U/Iran-clash-rules/release/ads.txt"
-    path: "./ruleset/ads.txt"
-    interval: 86400
-
+      - "VLESS - Domain 1 : 443"
 rules:
-  - RULE-SET,ir,DIRECT
-  - RULE-SET,ir-cidr,DIRECT
-  - RULE-SET,malware,REJECT
-  - RULE-SET,phishing,REJECT
-  - RULE-SET,cryptominers,REJECT
-  - RULE-SET,ads,REJECT
-  - MATCH,🌐 گلوبال
-
-ntp:
-  enable: true
-  server: "time.apple.com"
-  port: 123
-  interval: 30
+  - MATCH,FASTSSH-SSHKIT-HOWDY
